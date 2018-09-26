@@ -38,6 +38,9 @@ gem 'jbuilder', '~> 2.5'
 ## will_paginate is a pagination library that integrates with Ruby on Rails
 gem 'will_paginate', '~> 3.1.0'
 
+## Simple Form aims to be as flexible as possible while helping you with powerful components to create your forms.
+gem 'simple_form'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
