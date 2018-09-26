@@ -41,6 +41,9 @@ gem 'will_paginate', '~> 3.1.0'
 ## Simple Form aims to be as flexible as possible while helping you with powerful components to create your forms.
 gem 'simple_form'
 
+## font-awesome-rails provides the Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
+gem "font-awesome-rails"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
