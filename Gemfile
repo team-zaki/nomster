@@ -44,6 +44,10 @@ gem 'simple_form'
 ## font-awesome-rails provides the Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
 gem "font-awesome-rails"
 
+## Devise is a flexible user authentication solution for Rails
+gem "devise"
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
