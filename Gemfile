@@ -47,6 +47,11 @@ gem "font-awesome-rails"
 ## Devise is a flexible user authentication solution for Rails
 gem "devise"
 
+## Use geocoder gem to convert an address to a latitude and longitude. 
+gem "geocoder"
+
+## Figaro is a Heroku-friendly app that securely configures Rails applications. Sensitive Configuration values are kept out of Git using ENV and a single YAML file.
+gem "figaro"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
