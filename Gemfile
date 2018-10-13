@@ -53,6 +53,9 @@ gem "geocoder"
 ## Figaro is a Heroku-friendly app that securely configures Rails applications. Sensitive Configuration values are kept out of Git using ENV and a single YAML file.
 gem "figaro"
 
+## This gem provides a simple and extremely flexible way to upload photo files for Ruby applications.
+gem "carrierwave", '~> 1.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
