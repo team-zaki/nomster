@@ -4,8 +4,25 @@
   <br /><br />
   <p><%= @place.description %></p>
 
-  <% if @place.latitude.present? && @place.longitude.present? %>
-    <script>
+  <br />
+  <br />
+  <br />
+  <div class="float-right">
+    <% if current_user && current_user == @place.user %>
+      <%= link_to 'Edit place', edit_place_path(@place), class: 'btn btn-primary' %>
+      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#photoModal">
+        Add a photo
+      </button>
+      <%= link_to 'Destroy', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'btn btn-danger' %>
+    <% end %>
+  </div>
+  <div class="clear"></div>
+  <br />
+
+
+
+  <script>
+    <% if @place.latitude.present? && @place.longitude.present? %>
       function initMap() {
         var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
 
@@ -20,27 +37,19 @@
           title: 'Hello World!'
         });
       }
-    </script>
+  </script>
     
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmgi3U6jdk2K-tQbb2O30Fz4i-CLognOM&callback=initMap">
-    </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmgi3U6jdk2K-tQbb2O30Fz4i-CLognOM&callback=initMap">
+  </script>
 
-    <div id="map"></div>
+  <div id="map"></div>
 
   <% end %>
 
   <br />
 
-  <div class="float-right">
-    <% if current_user && current_user == @place.user %>
-      <%= link_to "Edit", edit_place_path(@place), class: "btn btn-primary" %>
-      <%= link_to "Destroy", place_path(@place), method: :delete, data: {confirm: "Are you sure you want to delete this?"},class: 'btn btn-danger' %>
-    <% end %>
-  </div>
 
-
-
-  <!-- Modal -->
+  <!-- Comments Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -64,8 +73,12 @@
     </div>
   </div>
 
-  <div class="col-10 offset-1">
-    <h1 class="float-left">Comment</h1>
+
+
+  <div class="col-10">
+    <h1 class="float-left">Comments</h1>
+  </div>
+  <div class="col-12">
     <!-- Button Trigger model -->
     <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
       Add a comment
@@ -86,5 +99,50 @@
       </div>
     <% end %>
   </div>
+
+  <br />
+
+  <!-- Photo Modal -->
+  <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Add a photo</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+          <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+            <div class="modal-body">
+              <%= f.input :picture %>
+              <%= f.input :caption %>
+            </div>
+            <div class="modal-footer">
+              <%= f.submit "Add a Photo", class: 'btn btn-secondary' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+  <div class="col-10">
+    <h1 class="float-left">Photos</h1>
+  </div>
+
+  <div class="row col-10 offset-1">
+    <% @place.photos.each do |photo| %>
+      <div class="col-12">
+        <blockquote class="photo-display">
+          <%= image_tag photo.picture, class: 'show-image-size' %>
+          <p><% if photo.caption.present? %>
+            <%= photo.caption %></p>
+          <% end %>
+        </blockquote>
+      </div>
+    <% end %>
+  </div>
+
 
 </div>

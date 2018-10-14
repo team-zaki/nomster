@@ -7,10 +7,19 @@
     <h1><%= link_to place.name, place_path(place) %></h1><br />
     <i><%= place.address %></i><br /><br />
     <p><%= place.description %></p><br />
+    <% if place.photos.present? %>
+      <div class="photos-index float-right">
+        <%= image_tag place.photos.first.picture, class: 'index-image-size' %>
+      </div>
+    <% end %>
+  </div>
+
+
 
     <% if place.user.present? %>
       <small><%= place.user.email %></small>
     <% end %>
+
     <% if place.comments.present? %>
       <div class="col-12">
         <blockquote>
@@ -23,6 +32,7 @@
         </blockquote>
       </div>
     <% end %>
-  </div>
 
 <% end %>
+
+<dlv class="clear"></dlv>
