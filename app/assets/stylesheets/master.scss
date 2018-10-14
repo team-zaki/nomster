@@ -68,3 +68,49 @@ blockquote:before {
 blockquote p {
   display: inline;
 }
+
+.show-image-size {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.index-image-size {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.photo {
+  margin-top: 20px;
+}
+
+.photo-display {
+  background: #fff;
+  padding: .25rem;
+  margin-bottom: 2rem;
+  quotes: "\201C""\201D";
+  text-align: center;
+}
+
+.photo-display p {
+  display: inline;
+}
+
+.photos-index {
+  width: 100%;
+  height: auto;
+  padding: .25rem;
+  margin-bottom: 2rem;
+  border: 1px solid #ddd;
+  position: relative;
+  margin: 0;
+}
+
+.float-right {
+  float: right !important;
+}
