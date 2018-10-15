@@ -2,18 +2,33 @@
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
   </ol>
   <div class="carousel-inner" role="listbox">
     <div class="carousel-item active">
-      <%= image_tag 'slider1.jpg', class: 'd-block img-fluid' %>
+      <%= image_tag 'car1.jpg', class: 'd-block img-fluid' %>
       <div class="carousel-caption d-none d-md-block">
-        <h3>Find the Best Burgers in the GTA</h3>
-    </div>
+        <h3>Let's find a great place to eat!</h3>
+      </div>
     </div>
     <div class="carousel-item">
-      <%= image_tag 'slider3.jpg', class: 'd-block img-fluid' %>
+      <%= image_tag 'car2.jpg', class: 'd-block img-fluid' %>
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Let's feed your Burger Nostalgia?</h3>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag 'car3.jpg', class: 'd-block img-fluid' %>
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Your are in Burger heaven now!</h3>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag 'car4.jpg', class: 'd-block img-fluid' %>
       <div class="carousel-caption d-none d-md-block">
         <h3>Your guide to the best burgers in Toronto!</h3>
+      </div>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -30,39 +45,39 @@
   <%= will_paginate @places , previous_label: h("< Previous"), next_label: h("Next >") %>
 </div>
 
-
-
 <% @places.each do |place| %>
   <div class="booyah-box" col-10 offset-1>
-    <h1><%= link_to place.name, place_path(place) %></h1><br />
-    <i><%= place.address %></i><br /><br />
-    <p><%= place.description %></p><br />
-    <% if place.photos.present? %>
-      <div class="photos-index float-right">
-        <%= image_tag place.photos.first.picture, class: 'index-image-size' %>
+    <div class="row">
+      <div class="col-12 col-md-9">
+        <h1><%= link_to place.name, place_path(place) %></h1><br /><br />
+        <i><%= place.address %></i><br /><br />
+        <p><%= place.description %></p><br />
+        <% if place.user.present? %>
+          <small><%= place.user.email %></small>
+        <% end %>
+        <br />
       </div>
-    <% end %>
-  </div>
-
-
-
-    <% if place.user.present? %>
-      <small><%= place.user.email %></small>
-    <% end %>
+      <div class="col-12 col-md-3">
+        <% if place.photos.present? %>
+          <div class="photos-index float-right">
+            <%= image_tag place.photos.first.picture, class: 'index-image-size' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
     <% if place.comments.present? %>
       <div class="col-12">
-        <blockquote>
+        <blockquote class="comment">
           <% if place.comments.last.humanized_rating.present? %>
-            <b><%= place.comments.last.humanized_rating %></b> -
+            <b><%= place.comments.last.humanized_rating %></b> - <%= place.comments.last.message %>
           <% end %>
-          
-          <%= place.comments.last.message %>
-          <small><%= place.comments.last.user.email %></small>
+          <small>- <%= place.comments.last.user.email %></small>
         </blockquote>
       </div>
     <% end %>
-
+  </div>
 <% end %>
 
 <dlv class="clear"></dlv>
+

@@ -18,20 +18,70 @@ h1, h2, h3, h4, h5, h6 {
   padding:0;
 }
 
+h1 {
+  font-size: 35px;
+}
+
+a {
+  color: #3ECAED;
+}
+
+a:hover {
+  color: #3ECAED;
+  text-decoration: none;
+}
+
 body {
-  background: image_url('light-grey-terrazzo.png');
+  background: image_url('dust_scratches.png');
   font-family: "montserratregular", sans-serif;
 }
 
 .navbar {
-  background: image_url('dark-grey-terrazzo.png');
+  background: image_url('grey_wash_wall_@2X.png');
   box-shadow: 0px 1px 3px #2a2a2a;
   margin-bottom: 0;
 }
 
 .navbar-inverse .navbar-brand {
-  color: #81F04D;
+  color: #3ECAED;
   font-family: "montserratregular", sans-serif;
+  font-size: 40px;
+}
+
+.pagination {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.25rem;
+  justify-content: center;
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #3ECAED;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.page-item.active .page-link {
+  z-index: 2;
+  color: #fff;
+  background-color: #3ECAED;
+  border-color: #3ECAED;
+}
+
+
+.btn-secondary {
+  color: #3ECAED;
+  background-color: #fff;
+  border-color: #ddd;
+  margin-left: 4px;
+  font-family: "montserratregular", sans-serif;
+  font-weight: bold;
 }
 
 .invalid-feedback {
@@ -45,20 +95,42 @@ body {
   height: 300px;
 }
 
+.comment {
+  background: #f2f2f2;
+  border-left: 6px solid #3ECAED;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D";
+}
+
+.comment:before {
+  color: #3ECAED;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+.comment p {
+  display: inline;
+}
+
+
 .clear {
   clear: both;
 }
 
 blockquote {
   background: #f9f9f9;
-  border-left: 10px solid #ccc;
+  border-left: 10px solid #3ECAED;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
 }
 
 blockquote:before {
-  color: #ccc;
+  color: #3ECAED;
   content: open-quote;
   font-size: 4em;
   line-height: 0.1em;
@@ -84,6 +156,12 @@ blockquote p {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+hr {
+  color: #ddd;
+  background-color: #ddd;
+  width: 60%;
 }
 
 .photo {
@@ -119,10 +197,10 @@ blockquote p {
 
 .carousel-caption {
   font-family: "montserratregular", sans-serif;
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 100px;
-  text-shadow: rgba(0, 0, 0, 0.95) 2px 2px;
-  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
+  background-color: rgba(0, 0, 0, 0.25);
   width: 100%;
   position: absolute;
   left: 0;
@@ -134,5 +212,14 @@ blockquote p {
 
 .carousel {
   box-shadow: 0px 3px 8px #2a2a2a;
+}
+
+.icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: auto;
+  align: center;
 }
 
