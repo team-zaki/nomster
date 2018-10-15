@@ -59,6 +59,9 @@ gem "carrierwave", '~> 1.0'
 ## SendGrid is an add-on for providing scalable email delivery and analytics for apps.
 gem "sendgrid-ruby"
 
+## Fog Gem
+gem "fog-aws"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
